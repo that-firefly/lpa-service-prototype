@@ -4,3 +4,67 @@
 // 
 
 // Add extra styles here
+.app-legacy-header {
+    background-color: #0b0c0c !important;
+    border-bottom: none;
+}
+
+.app-legacy-header .govuk-header__container {
+    border-bottom: none;
+}
+
+.app-legacy-header .govuk-header__link,
+.app-legacy-header .govuk-header__logotype-text,
+.app-legacy-header .govuk-header__service-name {
+    color: #ffffff;
+}
+
+.govuk-template--rebranded .govuk-header__link--homepage:not(:focus) {
+    background-color: #0b0c0c !important;
+}
+
+.govuk-template--rebranded .govuk-service-navigation {
+    background-color: #ffffff !important;
+}
+
+
+.govuk-logo-dot {
+    fill: #ffffff !important;
+}
+
+
+.app-utility-nav {
+    border-top: 10px solid #1d70b8;
+
+}
+
+.app-utility-nav__container {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #b1b4b6 !important;
+}
+
+.app-utility-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 10px 0;
+}
+
+.app-utility-nav__user {
+    color: #505a5f;
+    font-size: 16px;
+}
+
+.app-utility-nav__link {
+    color: #1d70b8;
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+.app-utility-nav__link:hover {
+    text-decoration: underline;
+}

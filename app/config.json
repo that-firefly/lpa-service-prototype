@@ -1,6 +1,5 @@
 {
-  "serviceName": "Service name goes here",
-  "useServiceNavigation": true,
+  "serviceName": "Make a lasting power of attorney",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true
