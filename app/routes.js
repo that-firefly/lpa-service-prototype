@@ -1,61 +1,66 @@
 module.exports = function (router) {
 
-  // ---------------------------------------------
-  // ROOT
-  // ---------------------------------------------
-  router.get('/', function (req, res) {
-    res.render('index') // auto-rendered
+  // lap-name
+  router.post('/lpa-name', function(req, res) {
+    res.redirect('/lpa-age')
   })
 
-  // ---------------------------------------------
-  // MAIN PAGES
-  // ---------------------------------------------
-  router.get('/dashboard', function (req, res) {
-    res.render('dashboard')
+  // lap-email
+  router.post('/lpa-age', function(req, res) {
+    res.redirect('/lpa-email')
   })
 
-  router.get('/properties-list', function (req, res) {
-    res.render('properties-list')
+  // lap-email
+  router.post('/lpa-email', function(req, res) {
+    res.redirect('/lpa-postcode')
   })
 
-  router.get('/income-expenses', function (req, res) {
-    res.render('income-expenses')
+  // lpa-postcode
+  router.post('/lpa-postcode', function(req, res) {
+    res.redirect('/lpa-select-address')
   })
 
-  // Step 2 – Task list
-  router.get('/mtd/task-list', function (req, res) {
-    res.render('mtd/task-list')
+  // lpa-select address
+  router.post('/lpa-select-address', function(req, res) {
+    res.redirect('/lpa-adress-confirm')
   })
 
-  // ---------------------------------------------
-  // MTD MINI JOURNEY
-  // ---------------------------------------------
-
-  // Step 1 – Start page
-  router.get('/mtd-old/start', function (req, res) {
-    res.render('mtd-old/start')
+  // lpa-confirm-address
+  router.post('/lpa-adress-confirm', function(req, res) {
+    res.redirect('/lpa-sign')
   })
 
-  // Handle form submit on the start page
-  router.post('/mtd-old/start', function (req, res) {
-    res.redirect('/mtd-old/task-list')
+
+  // lpa-sign
+  router.post('/lpa-sign', function(req, res) {
+    res.redirect('/lpa-check-answers-page')
   })
 
-  // Step 2 – Task list
-  router.get('/mtd-old/task-list', function (req, res) {
-    res.render('mtd-old/step1-property-type')
+
+  // lpa-check-answers
+  router.post('/lpa-sign', function(req, res) {
+    res.redirect('/lpa-check-answers-page')
   })
 
-  // Example additional MTD pages
-  router.get('/mtd/property-type', function (req, res) {
-    res.render('mtd/property-type')
+
+
+  // lpa-results-confirmationpage
+  router.post('/lpa-check-answers-page', function(req, res) {
+    res.redirect('/lpa-confirmation-page')
   })
 
-  router.post('/mtd/property-type-answer', function (req, res) {
-    req.session.data['propertyType'] = req.body.propertyType
-    res.redirect('/mtd/task-list')
-  })
+  // simulating addresses
+router.post('/lpa-postcode', function(req, res) {
+  req.session.data['addresses'] = [
+    '1 Park Farm Cottages, Villa Road, Cambridge, CB249NZ',
+    '2 Park Farm Cottages, Villa Road, Cambridge, CB249NZ',
+    '3 Park Farm Cottages, Villa Road, Cambridge, CB249NZ',
+    '4 Park Farm Cottages, Villa Road, Cambridge, CB249NZ',
+    '5 Park Farm Cottages, Villa Road, Cambridge, CB249NZ',
+    '6 Park Farm Cottages, Villa Road, Cambridge, CB249NZ'
+  ]
+  res.redirect('/lpa-select-address')
+})
+
 
 }
-
-

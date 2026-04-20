@@ -1,42 +1,56 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+  LPA created – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+{{ govukPanel({
+  titleText: "Lasting power of attorney created",
+  html: "Your reference number<br><strong>" + data['lpaReference'] + "</strong>"
+}) }}
 
-      {{ govukPanel({
-        titleText: "Application complete",
-        html: "Your reference number<br><strong>HDJ2123F</strong>"
-      }) }}
+    <p class="govuk-body">
+      We have sent a confirmation email to <strong>{{ data['email'] }}</strong>.
+    </p>
 
-      <p>
-        We have sent you a confirmation email.
-      </p>
+    <h2 class="govuk-heading-m">What happens next</h2>
 
-      <h2 class="govuk-heading-m">
-        What happens next
-      </h2>
+    <p class="govuk-body">
+      We have sent your LPA to the Office of the Public Guardian for registration.
+    </p>
 
-      <p>
-        We've sent your application to Hackney Electoral Register Office.
-      </p>
+    <p class="govuk-body">
+      Registration usually takes up to 20 weeks. During this time the Office of the Public Guardian will:
+    </p>
 
-      <p>
-        They will contact you either to confirm your registration, or to ask for more information.
-      </p>
-      <p>
-        <a href="#">
-          What did you think of this service?
-        </a> (takes 30 seconds)
-      </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>check your LPA is legally correct</li>
+      <li>notify the donor and any named people</li>
+      <li>register the LPA if there are no objections</li>
+    </ul>
 
+    <p class="govuk-body">
+      Once registered, your LPA will be returned to you by post. You will need to print, sign and keep it in a safe place.
+    </p>
 
-    </div>
+    <h2 class="govuk-heading-m">If you need help</h2>
+
+    <p class="govuk-body">
+      Contact the Office of the Public Guardian if you have any questions about your application.
+    </p>
+
+    <p class="govuk-body">
+      View your current <a href="./current-lpa.html" class="govuk-link">LPA requests</a>.
+    </p>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+    </p>
+
   </div>
-
+</div>
 {% endblock %}

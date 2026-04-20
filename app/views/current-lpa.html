@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Current LPAs – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">Current LPAs</h1>
+
+    <h2 class="govuk-heading-m">Property and financial affairs</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "LPA reference" },
+          value: { text: data['lpaReference'] or "LPA2123F" }
+        },
+        {
+          key: { text: "Donor" },
+          value: { text: data['fullName'] }
+        },
+        {
+          key: { text: "Status" },
+          value: { text: "In progress" }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Health and welfare</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "LPA reference" },
+          value: { text: "LPA3456G" }
+        },
+        {
+          key: { text: "Donor" },
+          value: { text: data['fullName'] }
+        },
+        {
+          key: { text: "Status" },
+          value: { text: "Registered" }
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Create a new LPA",
+      href: "/lpa-name",
+      classes: "govuk-button--secondary"
+    }) }}
+
+  </div>
+</div>
+{% endblock %}

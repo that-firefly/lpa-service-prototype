@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Who is the donor for this LPA?
+      </h1>
+      <form action="/lpa-name" method="post">
+
+       <p class="govuk-body">The 'donor' is the person appointing other people to make decisions on their behalf.</p>
+         <p class="govuk-body">The donor:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+             Must be 18 or over
+            </li>
+            <li>must be able to make their own decisions when they create the LPA, known as having mental capacity</li>
+            <li>Only the donor can make decisions about their LPA and the people to involve</li>
+          </ul>
+          <p class="govuk-body">Find out more about <a href="https://www.gov.uk/power-of-attorney" class="govuk-link" rel="noreferrer noopener" target="_blank">being a donor (opens in new tab)</a>.</p>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

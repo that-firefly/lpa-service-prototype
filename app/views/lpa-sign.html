@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Is the donor able to sign or make a mark on the LPA? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/lpa-check-answers-page" method="post">
+      <h1 class="govuk-heading-l">Is the donor able to sign or make a mark on the LPA?</h1>
+      <div class="govuk-inset-text">
+        We will add an extra sheet to the LPA so someone can sign on their behalf
+      </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="lpamark" name="lpamark" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="lpamark">
+                Yes
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="lpamark-2" name="lpamark" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="lpamark-2">
+                No
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}

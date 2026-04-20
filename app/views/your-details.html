@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+  Your details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,32 +15,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    <h1 class="govuk-heading-xl">
-      Check your answers before creating {{ data['serviceDescription'] }} (LPA)
-    </h1>
+    <h1 class="govuk-heading-xl">Your details</h1>
 
     {{ govukSummaryList({
       rows: [
-        {
-          key: { text: "Title" },
-          value: { text: data['title'] },
-          actions: {
-            items: [
-              {
-                href: "/lpa-name",
-                text: "Change",
-                visuallyHiddenText: "title"
-              }
-            ]
-          }
-        },
         {
           key: { text: "Full name" },
           value: { text: data['fullName'] },
           actions: {
             items: [
               {
-                href: "/lpa-name",
+                href: "./lpa-name",
                 text: "Change",
                 visuallyHiddenText: "full name"
               }
@@ -53,7 +38,7 @@
           actions: {
             items: [
               {
-                href: "/donor-dob",
+                href: "./lpa-age",
                 text: "Change",
                 visuallyHiddenText: "date of birth"
               }
@@ -66,7 +51,7 @@
           actions: {
             items: [
               {
-                href: "/lpa-email",
+                href: "./lpa-email",
                 text: "Change",
                 visuallyHiddenText: "email address"
               }
@@ -79,40 +64,15 @@
           actions: {
             items: [
               {
-                href: "/lpa-postcode",
+                href: "./lpa-postcode",
                 text: "Change",
                 visuallyHiddenText: "address"
-              }
-            ]
-          }
-        },
-        {
-          key: { text: "Can the donor sign or make a mark?" },
-          value: { text: "Yes" if data['lpamark'] === "yes" else "No" },
-          actions: {
-            items: [
-              {
-                href: "/lpa-sign",
-                text: "Change",
-                visuallyHiddenText: "if donor can sign"
               }
             ]
           }
         }
       ]
     }) }}
-
-    <h2 class="govuk-heading-m">Now send your application</h2>
-
-    <p class="govuk-body">
-      By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-    </p>
-
-    <form action="/lpa-confirmation-page" method="post">
-      {{ govukButton({
-        text: "Accept and send"
-      }) }}
-    </form>
 
   </div>
 </div>

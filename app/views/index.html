@@ -1,31 +1,123 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} – GOV.UK Prototype Kit
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Births, deaths, marriages and care",
+        href: "https://www.gov.uk/browse/births-deaths-marriages"
+      },
+      {
+        text: "Lasting power of attorney",
+        href: "https://www.gov.uk/browse/births-deaths-marriages/lasting-power-attorney"
+      },
+      {
+        text: "Create a lasting power of attorney (LPA)"
+      }
+    ]
+  }) }}
+
 {% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">
-      Welcome to the {{ serviceName }} prototype simulation
-    </h1>
+      <h1 class="govuk-heading-xl">
+        Create {{ data['serviceDescription'] }} (LPA)
+      </h1>
 
-    <p class="govuk-body">
-      This is the landing page for your service. Add links or user journeys below.
-    </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            About a LPA
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          
+      <p class="govuk-body">A Lasting Power of Attorney (LPA) is a legal document that lets you (the donor) appoint one or more people (called attorneys) to make decisions on your behalf if you're unable to do so yourself.</p>
+         <p class="govuk-body">There are two types:</p>
+         <p class="govuk-body">1. Property and financial affairs Covers things like:</p>
+          <ul class="govuk-list">
+            <li>
+              Managing bank accounts
+            </li>
+            <li>Paying bills</li>
+            <li>Buying or selling property</li>
+          </ul>
+           <p class="govuk-body">2. Health and welfare covers things like:</p>
+           <ul class="govuk-list">
+            <li>
+              medical treatment decisions
+            </li>
+            <li>where you live (such as care homes)</li>
+            <li>day-to-day care</li>
+          </ul>
+          <p class="govuk-body">You must be 18 or over to make one and you must have mental capacity when you create it. It also must be registered with the Office of the Public Guardian (OPG) before it can be used.</p>
+        </div>
+      </details>
 
-    <!-- Main journey -->
-    <a class="govuk-button" href="/login" data-module="govuk-button">
-      Start now
-    </a>
+      <p class="govuk-body">We'll use your answers to the questions that follow to create an LPA that you can save and print, sign and then send to the Office of the Public Guardian for registration.</p>
+      <p class="govuk-body">We'll save your LPA as you progress so you don't need to do it all in one go.</p>
+      <p class="govuk-body">If this is the first time you're making an LPA you may wish to find out more about <a href="https://www.gov.uk/power-of-attorney" class="govuk-link" rel="noreferrer noopener" target="_blank">how to prepare (opens in new tab)</a>.
+</p>
 
- 
 
+      <div class="govuk-inset-text">
+        This LPA covers property and financial affairs
+      </div>
+
+       <p class="govuk-body">Use this service to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>create a lasting power of attorney for property and financial affairs or health and welfare</li>
+        <li>appoint attorneys to make decisions on someone's behalf</li>
+        <li>sign and submit your LPA to the Office of the Public Guardian for registration</li>
+      </ul>
+
+      <p>Registering takes around 5 minutes.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "./who-lpa.html",
+        isStartButton: true
+      }) }}
+
+
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+
+      <p>
+        You can also <a href="#">register by post</a>.
+      </p>
+
+      <p>
+        The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
+      </p>
+
+      <p>
+        You can’t register for this service if you’re in the UK illegally.
+      </p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+
+    </div>
   </div>
-</div>
 
 {% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Select an address – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/lpa-adress-confirm" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select an address
+            </h1>
+          </legend>
+
+          <p class="govuk-body">
+            6 addresses found for <strong>{{ data['postcode'] }}</strong> and <strong>{{ data['searchString'] }}</strong>.
+            <a href="/lpa-postcode" class="govuk-link">Search again</a>
+          </p>
+
+          <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-an-address-1" name="select-an-address" type="radio"
+                value="1 Park Farm Cottages, Villa Road, Cambridge, CB249NZ">
+              <label class="govuk-label govuk-radios__label" for="select-an-address-1">
+                1 Park Farm Cottages, Villa Road, Cambridge, CB249NZ
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-an-address-2" name="select-an-address" type="radio"
+                value="2 Park Farm Cottages, Villa Road, Cambridge, CB249NZ">
+              <label class="govuk-label govuk-radios__label" for="select-an-address-2">
+                2 Park Farm Cottages, Villa Road, Cambridge, CB249NZ
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-an-address-3" name="select-an-address" type="radio"
+                value="3 Park Farm Cottages, Villa Road, Cambridge, CB249NZ">
+              <label class="govuk-label govuk-radios__label" for="select-an-address-3">
+                3 Park Farm Cottages, Villa Road, Cambridge, CB249NZ
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-an-address-4" name="select-an-address" type="radio"
+                value="4 Park Farm Cottages, Villa Road, Cambridge, CB249NZ">
+              <label class="govuk-label govuk-radios__label" for="select-an-address-4">
+                4 Park Farm Cottages, Villa Road, Cambridge, CB249NZ
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-an-address-5" name="select-an-address" type="radio"
+                value="5 Park Farm Cottages, Villa Road, Cambridge, CB249NZ">
+              <label class="govuk-label govuk-radios__label" for="select-an-address-5">
+                5 Park Farm Cottages, Villa Road, Cambridge, CB249NZ
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="select-an-address-6" name="select-an-address" type="radio"
+                value="6 Park Farm Cottages, Villa Road, Cambridge, CB249NZ">
+              <label class="govuk-label govuk-radios__label" for="select-an-address-6">
+                6 Park Farm Cottages, Villa Road, Cambridge, CB249NZ
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Use this address"
+      }) }}
+
+      <p class="govuk-body">
+        <a href="./enter-address-manually.html" class="govuk-link">Enter address manually</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+{% endblock %}
