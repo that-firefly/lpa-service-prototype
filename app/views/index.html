@@ -5,31 +5,6 @@
 {% endblock %}
 
 
-
-{% block beforeContent %}
-
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Births, deaths, marriages and care",
-        href: "https://www.gov.uk/browse/births-deaths-marriages"
-      },
-      {
-        text: "Lasting power of attorney",
-        href: "https://www.gov.uk/browse/births-deaths-marriages/lasting-power-attorney"
-      },
-      {
-        text: "Create a lasting power of attorney (LPA)"
-      }
-    ]
-  }) }}
-
-{% endblock %}
-
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -49,16 +24,16 @@
           
       <p class="govuk-body">A Lasting Power of Attorney (LPA) is a legal document that lets you (the donor) appoint one or more people (called attorneys) to make decisions on your behalf if you're unable to do so yourself.</p>
          <p class="govuk-body">There are two types:</p>
-         <p class="govuk-body">1. Property and financial affairs Covers things like:</p>
-          <ul class="govuk-list">
+         <p class="govuk-body"><strong>Property and financial affairs Covers things like:</strong></p>
+          <ul class="govuk-list govuk-list--bullet">
             <li>
               Managing bank accounts
             </li>
             <li>Paying bills</li>
             <li>Buying or selling property</li>
           </ul>
-           <p class="govuk-body">2. Health and welfare covers things like:</p>
-           <ul class="govuk-list">
+           <p class="govuk-body"><strong>Health and welfare covers things like:</strong></p>
+           <ul class="govuk-list govuk-list--bullet">
             <li>
               medical treatment decisions
             </li>

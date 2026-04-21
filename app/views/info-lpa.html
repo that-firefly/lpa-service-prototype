@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Create a lasting power of attorney – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">About the {{ data['serviceDescription'] }} (LPA)</h1>
+
+    <p class="govuk-body">A Lasting Power of Attorney (LPA) is a legal document that lets you (the donor) appoint one or more people (called attorneys) to make decisions on your behalf if you're unable to do so yourself.</p>
+         <p class="govuk-body">There are two types:</p>
+         <p class="govuk-body"><strong>Property and financial affairs Covers things like:</strong></p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              Managing bank accounts
+            </li>
+            <li>Paying bills</li>
+            <li>Buying or selling property</li>
+          </ul>
+           <p class="govuk-body"><strong>Health and welfare covers things like:</strong></p>
+           <ul class="govuk-list govuk-list--bullet">
+            <li>
+              medical treatment decisions
+            </li>
+            <li>where you live (such as care homes)</li>
+            <li>day-to-day care</li>
+          </ul>
+          <p class="govuk-body">You must be 18 or over to make one and you must have mental capacity when you create it. It also must be registered with the Office of the Public Guardian (OPG) before it can be used.</p>
+
+    <p class="govuk-body">
+      If this is the first time you're making an LPA you may wish to
+      <a href="https://www.gov.uk/power-of-attorney" class="govuk-link" rel="noreferrer noopener" target="_blank">
+        find out more about how to prepare (opens in new tab)
+      </a>.
+    </p>
+
+    {{ govukInsetText({
+      text: "This LPA covers property and financial affairs"
+    }) }}
+
+  </div>
+</div>
+{% endblock %}

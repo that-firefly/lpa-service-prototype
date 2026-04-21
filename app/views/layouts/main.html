@@ -1,30 +1,78 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
-
 {% from "govuk/components/header/macro.njk" import govukHeader %}
-{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
 {% block header %}
-
   {{ govukHeader({
     homepageUrl: "/",
     serviceName: "Make a lasting power of attorney",
     serviceUrl: "/",
-    classes: "app-legacy-header"
+    classes: "app-legacy-header",
+    navigation: [
+      {
+        href: "#app-mega-menu",
+        text: "Menu",
+        attributes: {
+          "id": "mega-menu-toggle",
+          "aria-expanded": "false",
+          "aria-controls": "app-mega-menu"
+        }
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
   }) }}
 
-  <div class="app-utility-nav">
-    <div class="govuk-width-container app-utility-nav__container">
-      
-      <div class="app-utility-nav__right">
-        <span class="app-utility-nav__user">{{ data['sampleUser'] }}</span>
+  <div class="govuk-phase-banner govuk-width-container">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">Alpha</strong>
+      <span class="govuk-phase-banner__text">
+        This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.
+      </span>
+    </p>
+  </div>
 
-        <a href="../your-details.html" class="app-utility-nav__link">Your details</a>
-        <a href="../current-lpa.html" class="app-utility-nav__link">Your LPAs</a>
-        <a href="#" class="app-utility-nav__link">Help</a>
-        <a href="#" class="app-utility-nav__link">Sign out</a>
+  <div class="app-mega-menu" id="app-mega-menu" aria-hidden="true">
+    <div class="govuk-width-container app-mega-menu__container">
+      <div class="app-mega-menu__columns">
+
+        <div class="app-mega-menu__column">
+        <h3 class="govuk-heading-s">Signed in as Estela Gaspar</h3>
+          <ul class="app-mega-menu__list app-mega-menu__list--two-col">
+            <ul class="app-mega-menu__list">
+            <li><a href="/your-details" class="app-mega-menu__link">Your details</a></li>
+            <li><a href="/current-lpa" class="app-mega-menu__link">Your LPAs</a></li>
+            <li><a href="../info-lpa.html" class="app-mega-menu__link">More information and help about LPAs</a></li>
+          </ul>
+          </ul>
+        </div>
+
+        <div class="app-mega-menu__column">
+
+         
+         
+        </div>
+
       </div>
-
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  const toggle = document.getElementById('mega-menu-toggle')
+  const menu = document.getElementById('app-mega-menu')
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault()
+      const expanded = this.getAttribute('aria-expanded') === 'true'
+      this.setAttribute('aria-expanded', String(!expanded))
+      menu.setAttribute('aria-hidden', String(expanded))
+      menu.classList.toggle('app-mega-menu--open')
+    })
+  }
+</script>
 {% endblock %}

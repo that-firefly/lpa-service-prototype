@@ -1,22 +1,37 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
-// Add extra styles here
+// =========================================
+// HEADER
+// =========================================
+
 .app-legacy-header {
     background-color: #0b0c0c !important;
     border-bottom: none;
 }
 
 .app-legacy-header .govuk-header__container {
-    padding: 10px 0px 2px 0px;
+    padding: 10px 0;
+    border-bottom: none !important;
+    margin-bottom: 0;
 }
 
 .app-legacy-header .govuk-header__link,
 .app-legacy-header .govuk-header__logotype-text,
 .app-legacy-header .govuk-header__service-name {
-    color: #ffffff;
+    color: #ffffff !important;
+}
+
+.app-legacy-header .govuk-header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.govuk-header__logo {
+    width: 20% !important;
 }
 
 .govuk-template--rebranded .govuk-header__link--homepage:not(:focus) {
@@ -27,44 +42,189 @@
     background-color: #ffffff !important;
 }
 
-
 .govuk-logo-dot {
     fill: #ffffff !important;
 }
 
+// =========================================
+// HEADER NAVIGATION
+// =========================================
 
-.app-utility-nav {
-    border-top: 10px solid #1d70b8;
-
-}
-
-.app-utility-nav__container {
-    padding-top: 2px;
-    padding-bottom: 2px;
+.app-legacy-header .govuk-header__navigation {
+    background-color: #0b0c0c !important;
+    width: auto !important;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    border-bottom: 1px solid #b1b4b6 !important;
 }
 
-.app-utility-nav__right {
+.app-legacy-header .govuk-header__navigation-list {
     display: flex;
     align-items: center;
-    gap: 25px;
-    padding: 10px 0;
+    gap: 0;
+    padding: 0;
+    margin: 0;
 }
 
-.app-utility-nav__user {
-    color: #505a5f;
+.app-legacy-header .govuk-header__navigation-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+// Divider between nav items
+.app-legacy-header .govuk-header__navigation-item+.govuk-header__navigation-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    padding-left: 15px;
+    margin-left: 15px;
+}
+
+.app-legacy-header .govuk-header__navigation-item a {
+    color: #ffffff !important;
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+        text-decoration: underline;
+        color: #ffffff !important;
+    }
+}
+
+// =========================================
+// MENU TOGGLE ARROW
+// =========================================
+
+#mega-menu-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+}
+
+#mega-menu-toggle::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg);
+    margin-right: 4px;
+    margin-bottom: 3px;
+    transition: transform 0.2s ease;
+}
+
+#mega-menu-toggle[aria-expanded="true"]::before {
+    transform: rotate(225deg);
+    margin-bottom: -3px;
+}
+
+// =========================================
+// PHASE BANNER
+// =========================================
+
+.govuk-phase-banner.govuk-width-container {
+    border-top: 10px solid #1d70b8 !important;
+}
+
+// =========================================
+// MEGA MENU PANEL
+// =========================================
+
+.app-mega-menu {
+    display: none;
+    background-color: #f4f8fb;
+    border-bottom: 1px solid #b1b4b6;
+
+    &--open {
+        display: block;
+    }
+}
+
+.app-mega-menu__container {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.app-mega-menu__columns {
+    display: flex;
+    gap: 60px;
+}
+
+.app-mega-menu__column {
+    flex: 1;
+}
+
+.app-mega-menu__heading {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0b0c0c;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0b0c0c;
+}
+
+.app-mega-menu__heading--user {
+    margin-top: 30px;
+    border-bottom: none;
     font-size: 16px;
 }
 
-.app-utility-nav__link {
+.app-mega-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app-mega-menu__list--two-col {
+    columns: 2;
+    column-gap: 30px;
+}
+
+.app-mega-menu__list li {
+    margin-bottom: 12px;
+    break-inside: avoid;
+}
+
+.app-mega-menu__link {
     color: #1d70b8;
-    text-decoration: underline;
     font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+
+    &:hover {
+        color: #003078;
+    }
 }
 
-.app-utility-nav__link:hover {
-    text-decoration: underline;
+.app-mega-menu__description {
+    font-size: 14px;
+    color: #505a5f;
+    margin: 2px 0 0 0;
+}
+
+
+
+.govuk-header__link:focus {
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    background-color: #0b0c0c !important;
+    box-shadow: 0 -2px #0b0c0c, 0 4px #0b0c0c !important;
+    text-decoration: none;
+}
+
+
+a#mega-menu-toggle.govuk-header__link {
+    text-decoration: none !important;
+}
+
+#mega-menu-toggle[aria-expanded="true"] {
+    color: #ffffff !important;
+
+    &::before {
+        border-right-color: #1d70b8;
+        border-bottom-color: #1d70b8;
+    }
 }
