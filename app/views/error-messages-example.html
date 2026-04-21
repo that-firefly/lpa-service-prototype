@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your date of birth? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Enter your date of birth",
+          href: "#date-birth-day"
+        }
+      ]
+    }) }}
+
+    <form action="/donor-dob" method="post">
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-birth-hint date-birth-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your date of birth?
+            </h1>
+          </legend>
+
+          <div id="date-birth-hint" class="govuk-hint">
+            For example, 27 3 1956
+          </div>
+
+          <p id="date-birth-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span>
+            Enter your date of birth
+          </p>
+
+          <div class="govuk-date-input" id="date-birth">
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-birth-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="date-birth-day"
+                  name="date-birth-day"
+                  type="text"
+                  inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-birth-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="date-birth-month"
+                  name="date-birth-month"
+                  type="text"
+                  inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-birth-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error"
+                  id="date-birth-year"
+                  name="date-birth-year"
+                  type="text"
+                  inputmode="numeric">
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}
