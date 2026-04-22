@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Design documentation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Audit findings and assumptions</h1>
+
+    <h2 class="govuk-heading-m">Navigation and header</h2>
+    <p class="govuk-body">The original design included a secondary navigation bar beneath the header, adding visual complexity. This was replaced with a consolidated menu button in the header inspired by the GOV.UK One Login pattern, where a mega menu contains all navigation items, reducing cognitive load and keeping the interface focused on the task.</p>
+    <p class="govuk-body">An Alpha phase banner was added with a feedback link to clearly communicate to users that this is a new service in testing, following GOV.UK phase banner guidance.</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Information architecture</h2>
+    <p class="govuk-body">The original screen presented information in a single long page adding a lot of complexity and cognitive load. There were two conflicting graphical elements with higher visual hierarchy, "Who is the donor for this LPA?" and the "Add donor details" call to action button, which could cause confusion to the user.</p>
+    <p class="govuk-body">The introductory content was restructured to clearly communicate the purpose of the service upfront.</p>
+    <p class="govuk-body"> A details component was introduced to give users the ability to get more information about LPAs. An inset text component was added to highlight "This LPA covers property and financial affairs", making it visually distinct and easier to scan. A "Use this service to" bullet list was added to set clear user expectations before starting the journey.</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">One thing per page</h2>
+    <p class="govuk-body">The original single page combined service information and the donor details form, creating an overloaded entry point. This was separated into two distinct pages, a start page and an eligibility page, following the GOV.UK onboarding pattern.</p>
+    <p class="govuk-body">The modal popup was replaced with a series of individual pages: </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>What are your details?</li>
+      <li>What is your date of birth?</li>
+      <li>What is your email address?</li>
+      <li>Find an address</li>
+      <li>Select an address</li>
+      <li>Confirm address</li>
+      <li>Can the donor sign or make a mark?</li>
+      </ul>
+    <p class="govuk-body">Modals create accessibility issues including focus management problems and are not recommended in the GOV.UK Design System. Breaking the form into individual pages reduces cognitive load, makes error recovery easier, and allows users to save progress at each step.</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Three-step address pattern</h2>
+    <p class="govuk-body">A three-step address pattern was implemented following the DWP Design System find an address pattern: postcode entry, address selection, and address confirmation. A manual entry option was also provided. This reduces input errors and is a familiar pattern for UK users, meeting accessibility requirements better than a single address text field.</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Check answers and confirmation pages</h2>
+    <p class="govuk-body">A check answers page was added before submission showing all entered data with "change" links back to individual pages, giving users confidence before submitting and reducing errors.</p>
+    <p class="govuk-body">A confirmation page was added showing a reference number and next steps explaining the Office of the Public Guardian (OPG) registration process. It also allows the user to access previous and current LPAs and sets clear expectations about what happens after submission.</p>
+
+  </div>
+</div>
+{% endblock %}

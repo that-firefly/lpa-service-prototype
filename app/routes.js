@@ -63,4 +63,60 @@ router.post('/lpa-postcode', function(req, res) {
 })
 
 
+
+  // error messages get and post
+
+// error messages - name
+  router.get('lpa-name-error-message', (req, res) => {
+    res.render('lpa-name-error-message')
+  })
+  router.post('lpa-name-error-message', (req, res) => {
+    res.redirect('lpa-age-error-message')
+  })
+
+  // error messages - date of birth
+  router.get('/lpa-age-error-message', (req, res) => {
+    res.render('/lpa-age-error-message')
+  })
+  router.post('lpa-age-error-message', (req, res) => {
+    res.redirect('lpa-email-error-message')
+  })
+
+  // error messages - email
+  router.get('lpa-email-error-message', (req, res) => {
+    res.render('lpa-email-error-message')
+  })
+  router.post('lpa-email-error-message', (req, res) => {
+    res.redirect('lpa-postcode-error-message')
+  })
+
+  // error messages - postcode
+  router.get('/error-messages/lpa-postcode-error-message', (req, res) => {
+    res.render('error-messages/lpa-postcode-error-message')
+  })
+  router.post('/error-messages/lpa-postcode-error-message', (req, res) => {
+    res.redirect('/error-messages/lpa-select-address-error-message')
+  })
+
+  // error messages - select address
+  router.get('/error-messages/lpa-select-address-error-message', (req, res) => {
+    res.render('error-messages/lpa-select-address-error-message')
+  })
+  router.post('/error-messages/lpa-select-address-error-message', (req, res) => {
+    res.redirect('/error-messages/lpa-adress-confirm-error-message')
+  })
+
+  // error messages - confirm address
+  router.get('/error-messages/lpa-adress-confirm-error-message', (req, res) => {
+    res.render('error-messages/lpa-adress-confirm-error-message')
+  })
+  router.post('/error-messages/lpa-adress-confirm-error-message', (req, res) => {
+    res.redirect('/')
+  })
+
+
+
+
 }
+
+

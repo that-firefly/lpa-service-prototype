@@ -1,7 +1,8 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% block pageTitle %}
-  What are your details? – {{ serviceName }} – GOV.UK Prototype Kit
+  Error: What are your details? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,39 +15,54 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        { text: "Enter your title", href: "#title" },
+        { text: "Enter your full name", href: "#full-name" }
+      ]
+    }) }}
+
     <h1 class="govuk-heading-l">
       What are your details?
     </h1>
 
-    <form action="/lpa-age" method="post">
+    <form action="lpa-age-error-message" method="post">
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
         <label class="govuk-label" for="title">
           Title
         </label>
-        <input class="govuk-input govuk-input--width-5"
+        <p id="title-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter your title
+        </p>
+        <input class="govuk-input govuk-input--width-5 govuk-input--error"
           id="title"
           name="title"
           type="text"
           spellcheck="false"
+          aria-describedby="title-error"
           autocomplete="honorific-prefix">
       </div>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group govuk-form-group--error">
         <label class="govuk-label" for="full-name">
           Full name
         </label>
-        <input class="govuk-input"
+        <p id="full-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter your full name
+        </p>
+        <input class="govuk-input govuk-input--error"
           id="full-name"
           name="fullName"
           type="text"
           spellcheck="false"
+          aria-describedby="full-name-error"
           autocomplete="name">
       </div>
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+      <button type="submit" class="govuk-button">Continue</button>
 
     </form>
   </div>

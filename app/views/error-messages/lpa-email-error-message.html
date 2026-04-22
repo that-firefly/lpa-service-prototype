@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your email address? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        { text: "Enter your email address", href: "#email" }
+      ]
+    }) }}
+
+ <form action="lpa-postcode-error-message" method="post">
+      <div class="govuk-form-group govuk-form-group--error">
+        <label class="govuk-label govuk-label--l" for="email">
+          What is your email address?
+        </label>
+        <div id="email-hint" class="govuk-hint">
+          We'll only use this for our records
+        </div>
+        <p id="email-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter your email address
+        </p>
+        <input class="govuk-input govuk-input--error"
+          id="email"
+          name="email"
+          type="email"
+          spellcheck="false"
+          aria-describedby="email-hint email-error"
+          autocomplete="email">
+      </div>
+
+      <button type="submit" class="govuk-button">Continue</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

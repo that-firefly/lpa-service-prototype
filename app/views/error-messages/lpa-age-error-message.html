@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: What is your date of birth? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        { text: "Please fill in the date of birth in the correct format, for example, 27 3 1956", href: "#passport-issued-day" }
+      ]
+    }) }}
+
+  <form action="lpa-email-error-message" method="post">
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint passport-issued-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What is your date of birth?
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 27 3 1956
+          </div>
+          <p id="passport-issued-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Please fill in the date of birth in the correct format, for example, 27 3 1956
+          </p>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="passport-issued-day"
+                  name="passport-issued-day"
+                  type="text"
+                  value="6"
+                  inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error"
+                  id="passport-issued-month"
+                  name="passport-issued-month"
+                  type="text"
+                  value="3"
+                  inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error"
+                  id="passport-issued-year"
+                  name="passport-issued-year"
+                  type="text"
+                  value="2076"
+                  inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">Continue</button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

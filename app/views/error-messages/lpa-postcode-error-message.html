@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Error: Find an address – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        { text: "Enter a postcode", href: "#postcode" },
+        { text: "Enter a building number or name", href: "#searchString" }
+      ]
+    }) }}
+
+    <h1 class="govuk-heading-l">Find an address</h1>
+
+    <form action="lpa-select-address-error-message" method="post">
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <label class="govuk-label" for="postcode">
+          Postcode
+        </label>
+        <div id="postcode-hint" class="govuk-hint">
+          For example, CB249NZ
+        </div>
+        <p id="postcode-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a postcode
+        </p>
+        <input class="govuk-input govuk-!-width-two-thirds govuk-input--error"
+          id="postcode"
+          name="postcode"
+          type="text"
+          aria-describedby="postcode-hint postcode-error"
+          autocomplete="postal-code">
+      </div>
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <label class="govuk-label" for="searchString">
+          Building number or name
+        </label>
+        <div id="searchString-hint" class="govuk-hint">
+          For example, 2 Park Farm Cottages
+        </div>
+        <p id="searchString-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a building number or name
+        </p>
+        <input class="govuk-input govuk-!-width-two-thirds govuk-input--error"
+          id="searchString"
+          name="searchString"
+          type="text"
+          aria-describedby="searchString-hint searchString-error">
+      </div>
+
+      <button type="submit" class="govuk-button">Find address</button>
+
+      <p class="govuk-body">
+        <a href="./enter-address-manually.html" class="govuk-link">Enter address manually</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+{% endblock %}

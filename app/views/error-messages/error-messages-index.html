@@ -1,0 +1,22 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Design documentation – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Design documentation</h1>
+    <h2 class="govuk-heading-m">Error messages</h2>
+    <p class="govuk-body">Error message examples have been included across the service journey to demonstrate how validation would be handled following the GOV.UK error message pattern. In a fully built service these would be triggered automatically by the form.</p>
+    <p class="govuk-body"><a href="/error-messages/lpa-name-error-message" class="govuk-link">View error message examples</a></p>
+
+    <h2 class="govuk-heading-m">Audit findings and assumptions</h2>
+    <p class="govuk-body">An explanation of design decisions made during the audit, including assumptions, constraints and recommendations.</p>
+    <p class="govuk-body"><a href="./audit-findings-assumptions.html" class="govuk-link">View audit findings and design decisions</a></p>
+
+  </div>
+</div>
+{% endblock %}
